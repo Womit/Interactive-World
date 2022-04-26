@@ -9,10 +9,8 @@ public class airQuality : MonoBehaviour
     private float value;
     private float minValue;
     private float maxValue;
-
     private Slider slider;
     public GameObject mainSlider;
-
     private float distance;
 
     // Start is called before the first frame update
@@ -20,6 +18,7 @@ public class airQuality : MonoBehaviour
     {
         
        slider = mainSlider.GetComponent<Slider>();
+
         
     }
 
@@ -32,7 +31,7 @@ public class airQuality : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, Cube.transform.position);
         Debug.Log("Distance to other: " + dist);
 
-
         slider.value = dist;
+
     }
 }
