@@ -11,6 +11,8 @@ public class airQuality : MonoBehaviour
     private float maxValue;
     private Slider slider;
     public GameObject mainSlider;
+
+    public float fogStrength;
     private float distance;
 
     // Start is called before the first frame update
@@ -18,6 +20,8 @@ public class airQuality : MonoBehaviour
     {
         
        slider = mainSlider.GetComponent<Slider>();
+
+       RenderSettings.fog = true;
 
         
     }
@@ -32,6 +36,16 @@ public class airQuality : MonoBehaviour
         Debug.Log("Distance to other: " + dist);
 
         slider.value = dist;
+        
+        //RenderSettings.fogDensity = 0.02f;
 
+        float fogStrength = Vector3.Distance(player.transform.position, Cube.transform.position);
+        if (dist < 70f )
+        {
+            RenderSettings.fogDensity = 0.02f;
+        } else if (dist > 70f)
+        {
+            RenderSettings.fogDensity = 0f;
+        }
     }
 }
