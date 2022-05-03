@@ -47,5 +47,10 @@ public class airQuality : MonoBehaviour
         {
             RenderSettings.fogDensity = 0f;
         }
+
+        if (dist < 20f)
+        {
+            RenderSettings.fogDensity = 0.1f;
+        }
     }
 }
